@@ -100,3 +100,7 @@ Bot Token (od @BotFather na Telegramie).
 Chat ID (Twoje ID, które uzyskasz np. od bota @userinfobot).
 Oto zaktualizowany skrypt z obsługą Telegrama i poprawioną obsługą błędów:
 1. Zaktualizowany skrypt Python (w bot_legimi.py)
+
+# Wskazówka na 10. dzień miesiąca:
+Strona WiMBP bywa bardzo obciążona równo o 9:00. Możesz zmodyfikować skrypt, aby w pętli try-except próbował kliknąć przycisk kilka razy co 5 sekund, dopóki się nie uda lub kody się nie skończą.
+Czy chciałbyś, abyśmy dodali taką pętlę ponawiania prób (retry), na wypadek gdyby serwer biblioteki był przeciążony?
