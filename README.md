@@ -69,3 +69,27 @@ def get_legimi_code():
 if __name__ == "__main__":
     get_legimi_code()
 
+---
+
+# Jak to uruchomić?
+
+Zbuduj obraz:
+docker build -t legimi-bot .
+Uruchom testowo (podając swoje dane):
+docker run -e CARD_NUMBER='12345' -e PASSWORD='haslo' legimi-bot
+
+# Uwagi techniczne:
+Selektory CSS: Biblioteka WiMBP może zmieniać strukturę strony. Jeśli skrypt "wywali się" na szukaniu przycisku, musisz sprawdzić id lub class przycisku za pomocą "Zbadaj element" (F12) w przeglądarce i zaktualizować By.PARTIAL_LINK_TEXT.
+Godzina startu: Ponieważ kody znikają w kilka minut, skrypt najlepiej odpalić przez Cron o 8:59:50, aby był już zalogowany równo o 9:00.
+Powiadomienia: Warto dopisać do Pythona prostą funkcję wysyłającą kod na e-mail lub Telegrama, żeby nie musieć zaglądać do logów Dockera.
+Czy chcesz, abym dopisał do skryptu powiadomienia na e-mail lub telefon, żebyś od razu dostał pobrany kod?
+
+---
+
+# dopisz powiadomienie przez telegram.
+
+Aby dodać powiadomienia przez Telegram, wykorzystamy prosty mechanizm webhooka. Będziesz potrzebował dwóch rzeczy:
+Bot Token (od @BotFather na Telegramie).
+Chat ID (Twoje ID, które uzyskasz np. od bota @userinfobot).
+Oto zaktualizowany skrypt z obsługą Telegrama i poprawioną obsługą błędów:
+1. Zaktualizowany skrypt Python (w bot_legimi.py)
