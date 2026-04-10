@@ -104,3 +104,13 @@ Oto zaktualizowany skrypt z obsługą Telegrama i poprawioną obsługą błędó
 # Wskazówka na 10. dzień miesiąca:
 Strona WiMBP bywa bardzo obciążona równo o 9:00. Możesz zmodyfikować skrypt, aby w pętli try-except próbował kliknąć przycisk kilka razy co 5 sekund, dopóki się nie uda lub kody się nie skończą.
 Czy chciałbyś, abyśmy dodali taką pętlę ponawiania prób (retry), na wypadek gdyby serwer biblioteki był przeciążony?
+
+---
+
+# Co się zmieniło?
+
+Pętla for: Skrypt nie poddaje się po pierwszym błędzie (np. gdy strona się nie ładuje).
+driver.refresh(): Przy każdej nieudanej próbie odświeżamy sesję, co jest skuteczne przy błędach typu "Gateway Timeout".
+Wczesne zakończenie (return): Gdy tylko kod zostanie znaleziony i wysłany na Telegram, skrypt natychmiast kończy działanie.
+Logowanie wewnątrz pętli: Dodałem prosty warunek sprawdzający, czy formularz logowania jest widoczny (na wypadek, gdyby sesja wygasła między odświeżeniami).
+Czy potrzebujesz instrukcji, jak ustawić ten kontener na serwerze (np. VPS lub Raspberry Pi), aby uruchamiał się automatycznie o 9:00?
