@@ -75,8 +75,15 @@ if __name__ == "__main__":
 
 Zbuduj obraz:
 docker build -t legimi-bot .
-Uruchom testowo (podając swoje dane):
-docker run -e CARD_NUMBER='12345' -e PASSWORD='haslo' legimi-bot
+
+Uruchom podając dane:
+docker run \
+  -e CARD_NUMBER='twój_numer' \
+  -e PASSWORD='twoje_hasło' \
+  -e TELEGRAM_TOKEN='123456789:ABCDEF...' \
+  -e TELEGRAM_CHAT_ID='987654321' \
+  legimi-bot
+
 
 # Uwagi techniczne:
 Selektory CSS: Biblioteka WiMBP może zmieniać strukturę strony. Jeśli skrypt "wywali się" na szukaniu przycisku, musisz sprawdzić id lub class przycisku za pomocą "Zbadaj element" (F12) w przeglądarce i zaktualizować By.PARTIAL_LINK_TEXT.
